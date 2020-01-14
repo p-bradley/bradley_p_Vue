@@ -21,6 +21,10 @@ var vm = new Vue({
       { name: "Marvel's The Avengers", thumb: "avengers.jpg", vidsource: "avengers.mp4", description: "will they make black widow action figures this time?" }
     ],
 
+    videotitle: "video title goes here.",
+    videodescription: "video description goes here.",
+    videosource: "",
+
     showDetails: false
   },
 
@@ -38,6 +42,17 @@ var vm = new Vue({
 
     setUserPrefs() {
       console.log("changing preferences");
+    },
+    
+    //this is ES6 data destructing - pull 
+    loadMovie({name, description, vidsource}) {
+      console.log("show movie details");
+
+      this.videotitle = name;
+      this.videodescription = description;
+      this.videosource = vidsource;
+
+      this.showDetails = true;
     }
   }
 });
